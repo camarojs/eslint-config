@@ -9,16 +9,11 @@ const customized = stylistic.configs.customize({
     indent: 4,
 });
 
-/** @type {import("eslint").Linter.FlatConfig[]} */
-const config = [
+/** @type {import('eslint').Linter.FlatConfig[]} */
+module.exports = [
+    customized,
+    eslint.configs.recommended,
     {
-        rules: {
-            ...eslint.configs.recommended.rules,
-            ...customized.rules,
-        },
-        plugins: {
-            "@stylistic": stylistic,
-        },
         languageOptions: {
             globals: {
                 ...globals.node,
@@ -26,5 +21,3 @@ const config = [
         },
     },
 ];
-
-module.exports = config;
