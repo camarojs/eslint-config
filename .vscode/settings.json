@@ -1,0 +1,11 @@
+{
+  "cSpell.import": [
+    "./eng/cspell.config.json"
+  ],
+  "eslint.options": {
+    "overrideConfigFile": "./eng/eslint.config.js",
+  },
+  "eslint.workingDirectories": [
+    "."
+  ]
+}

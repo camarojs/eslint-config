@@ -1,0 +1,13 @@
+{
+  "cache": {
+    "cacheLocation": "../node_modules/.cache/cspell",
+    "useCache": true
+  },
+  "useGitignore": true,
+  "words": [
+    "commitlint",
+    "commitlintrc",
+    "lintstagedrc",
+    "pikadun"
+  ]
+}
