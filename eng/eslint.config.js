@@ -1,3 +1,4 @@
-const config = require("../src/javascript");
+const js = require("../src/javascript");
+const ts = require("../src/typescript");
 
-module.exports = config;
+module.exports = [...js, ...ts];

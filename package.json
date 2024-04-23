@@ -3,8 +3,14 @@
   "version": "0.0.2",
   "description": "A shareable eslint config.",
   "exports": {
-    "js": "./src/javascript.js",
-    "ts": "./src/typescript.js"
+    "./js": {
+      "require": "./src/javascript.js",
+      "types": "./index.d.ts"
+    },
+    "./ts": {
+      "require": "./src/typescript.js",
+      "types": "./index.d.ts"
+    }
   },
   "scripts": {
     "prepare": "husky",
