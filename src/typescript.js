@@ -1,9 +1,7 @@
 const { parser } = require("typescript-eslint");
-const common = require("./common");
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
-    ...common,
     {
         files: ["**/*.ts"],
         rules: {
