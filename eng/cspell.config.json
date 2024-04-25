@@ -5,8 +5,11 @@
   },
   "useGitignore": true,
   "words": [
+    "backreference",
+    "camelcase",
     "commitlint",
     "commitlintrc",
+    "endregion",
     "lintstagedrc",
     "pikadun"
   ]
