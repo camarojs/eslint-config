@@ -3,17 +3,13 @@
   "version": "0.0.4",
   "description": "A shareable eslint config.",
   "exports": {
-    "./common": {
+    ".": {
       "require": "./src/common.js",
-      "types": "./index.d.ts"
-    },
-    "./js": {
-      "require": "./src/javascript.js",
-      "types": "./index.d.ts"
+      "types": "./type.d.ts"
     },
     "./ts": {
       "require": "./src/typescript.js",
-      "types": "./index.d.ts"
+      "types": "./type.d.ts"
     }
   },
   "scripts": {

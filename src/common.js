@@ -14,6 +14,10 @@ module.exports = [
     customized,
     eslint.configs.recommended,
     {
+        rules: {
+            "no-var": "error",
+            "prefer-const": "error",
+        },
         languageOptions: {
             globals: {
                 ...globals.node,
