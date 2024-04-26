@@ -7,7 +7,6 @@ module.exports = [
         languageOptions: {
             parser,
             parserOptions: {
-                // eslint-disable-next-line camelcase
                 EXPERIMENTAL_useProjectService: true,
             },
         },

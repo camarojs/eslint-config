@@ -34,10 +34,11 @@ module.exports = [
             // #endregion
 
             // #region Suggestions
-            "camelcase": "error",
             "dot-notation": "error",
             "no-var": "error",
             "prefer-const": "error",
+            "prefer-template": "error",
+            "sort-imports": "error",
             "sort-keys": ["error", "asc", { allowLineSeparatedGroups: true }],
             "symbol-description": "error",
             // #endregion
