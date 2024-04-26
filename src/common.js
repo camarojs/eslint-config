@@ -14,11 +14,7 @@ module.exports = [
     customized,
     eslint.configs.recommended,
     {
-        languageOptions: {
-            globals: {
-                ...globals.node,
-            },
-        },
+        languageOptions: { globals: { ...globals.node } },
         rules: {
             // #region Possible Problems
             "array-callback-return": "error",
@@ -34,6 +30,7 @@ module.exports = [
             // #endregion
 
             // #region Suggestions
+            "curly": "error",
             "dot-notation": "error",
             "no-var": "error",
             "prefer-const": "error",
@@ -41,6 +38,19 @@ module.exports = [
             "sort-imports": "error",
             "sort-keys": ["error", "asc", { allowLineSeparatedGroups: true }],
             "symbol-description": "error",
+            // #endregion
+
+            // #region Stylistic
+            "@stylistic/function-call-argument-newline": ["error", "consistent"],
+            "@stylistic/function-call-spacing": "error",
+            "@stylistic/function-paren-newline": ["error", "multiline"],
+            "@stylistic/implicit-arrow-linebreak": "error",
+            "@stylistic/max-len": ["error", { code: 120 }],
+            "@stylistic/no-extra-semi": "error",
+            "@stylistic/object-curly-newline": ["error", { multiline: true }],
+            "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
+            "@stylistic/semi-style": "error",
+            "@stylistic/switch-colon-spacing": "error",
             // #endregion
         },
 

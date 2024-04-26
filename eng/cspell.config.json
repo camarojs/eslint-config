@@ -10,6 +10,7 @@
     "commitlint",
     "commitlintrc",
     "endregion",
+    "linebreak",
     "lintstagedrc",
     "pikadun"
   ]
