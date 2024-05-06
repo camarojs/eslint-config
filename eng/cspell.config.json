@@ -6,12 +6,12 @@
   "useGitignore": true,
   "words": [
     "backreference",
+    "camaro",
     "camelcase",
     "commitlint",
     "commitlintrc",
     "endregion",
     "linebreak",
-    "lintstagedrc",
-    "pikadun"
+    "lintstagedrc"
   ]
 }
