@@ -14,10 +14,11 @@
   },
   "scripts": {
     "prepare": "husky",
-    "commitlint": "commitlint --config ./eng/.commitlintrc.json --edit",
-    "eslint": "eslint --config ./eng/eslint.config.js --fix .",
     "cspell": "cspell --config ./eng/cspell.config.json .",
-    "lint-staged": "lint-staged --config ./eng/.lintstagedrc.json"
+    "commitlint": "commitlint --config ./eng/.commitlintrc.json --edit",
+    "eslint": "eslint --config ./eng/eslint.config.js .",
+    "lint": "npm run cspell && npm run eslint",
+    "lint:staged": "lint-staged --config ./eng/.lintstagedrc.json"
   },
   "dependencies": {
     "@eslint/js": "^9.1.1",
