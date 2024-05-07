@@ -14,7 +14,7 @@
   },
   "scripts": {
     "prepare": "husky",
-    "cspell": "cspell --config ./eng/cspell.config.json .",
+    "cspell": "cspell --config ./eng/cspell.config.json --quiet .",
     "commitlint": "commitlint --config ./eng/.commitlintrc.json --edit",
     "eslint": "eslint --config ./eng/eslint.config.js .",
     "lint": "npm run cspell && npm run eslint",
