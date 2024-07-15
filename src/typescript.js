@@ -1,21 +1,22 @@
-const { parser } = require("typescript-eslint");
+const tsEslint = require("typescript-eslint");
+const common = require("./common");
+
+const typescriptRules = [
+    ...tsEslint.configs.recommendedTypeChecked,
+    ...tsEslint.configs.strictTypeChecked,
+    ...tsEslint.configs.stylisticTypeChecked,
+].reduce((acc, config) => ({ ...acc, ...config.rules }), {});
 
 /** @type {import('eslint').Linter.FlatConfig[]} */
 module.exports = [
+    ...common,
     {
-        files: ["**/*.ts"],
+        files: ["src/**/*.ts"],
         languageOptions: {
-            parser,
-            parserOptions: { EXPERIMENTAL_useProjectService: true },
+            parser: tsEslint.parser,
+            parserOptions: { projectService: true },
         },
-        // eslint-disable-next-line @stylistic/object-curly-newline
-        rules: {
-            // TODO: wait for typescript-eslint support eslint@v9
-            // ...configs.recommendedTypeChecked,
-            // ...configs.strictTypeChecked,
-            // ...configs.stylisticTypeChecked,
-            // eslint-disable-next-line @stylistic/object-curly-newline
-        },
-
+        plugins: { "@typescript-eslint": tsEslint.plugin },
+        rules: { ...typescriptRules },
     },
 ];

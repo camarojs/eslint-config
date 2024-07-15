@@ -1,4 +1,11 @@
 const common = require("../src/common");
-const ts = require("../src/typescript");
+const globals = require("globals");
 
-module.exports = [...common, ...ts];
+/** @type {import('eslint').Linter.FlatConfig[]} */
+module.exports = [
+    ...common,
+    {
+        files: ["src/**/*.js", "eng/**/*.js"],
+        languageOptions: { globals: { ...globals.node } },
+    },
+];

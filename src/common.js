@@ -1,6 +1,5 @@
 const stylistic = require("@stylistic/eslint-plugin");
 const eslint = require("@eslint/js");
-const globals = require("globals");
 
 const customized = stylistic.configs.customize({
     indent: 4,
@@ -14,7 +13,6 @@ module.exports = [
     customized,
     eslint.configs.recommended,
     {
-        languageOptions: { globals: { ...globals.node } },
         rules: {
             // #region Possible Problems
             "array-callback-return": "error",
@@ -35,12 +33,12 @@ module.exports = [
             "no-var": "error",
             "prefer-const": "error",
             "prefer-template": "error",
-            "sort-imports": "error",
             "sort-keys": ["error", "asc", { allowLineSeparatedGroups: true }],
             "symbol-description": "error",
             // #endregion
 
             // #region Stylistic
+            "@stylistic/array-bracket-newline": ["error", { multiline: true }],
             "@stylistic/function-call-argument-newline": ["error", "consistent"],
             "@stylistic/function-call-spacing": "error",
             "@stylistic/function-paren-newline": ["error", "multiline"],
@@ -53,6 +51,5 @@ module.exports = [
             "@stylistic/switch-colon-spacing": "error",
             // #endregion
         },
-
     },
 ];
