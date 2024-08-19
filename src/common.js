@@ -8,7 +8,7 @@ const customized = stylistic.configs.customize({
     semi: true,
 });
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 module.exports = [
     customized,
     eslint.configs.recommended,
