@@ -43,7 +43,17 @@ module.exports = [
             "@stylistic/function-call-spacing": "error",
             "@stylistic/function-paren-newline": ["error", "multiline"],
             "@stylistic/implicit-arrow-linebreak": "error",
-            "@stylistic/max-len": ["error", { code: 120 }],
+            "@stylistic/max-len": [
+                "error", {
+                    code: 120,
+                    ignoreComments: true,
+                    ignoreRegExpLiterals: true,
+                    ignoreStrings: true,
+                    ignoreTemplateLiterals: true,
+                    ignoreTrailingComments: true,
+                    ignoreUrls: true,
+                },
+            ],
             "@stylistic/no-extra-semi": "error",
             "@stylistic/object-curly-newline": ["error", { multiline: true }],
             "@stylistic/object-property-newline": ["error", { allowAllPropertiesOnSameLine: true }],
