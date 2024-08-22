@@ -39,6 +39,7 @@ module.exports = [
 
             // #region Stylistic
             "@stylistic/array-bracket-newline": ["error", { multiline: true }],
+            "@stylistic/array-element-newline": ["error", { consistent: true }],
             "@stylistic/function-call-argument-newline": ["error", "consistent"],
             "@stylistic/function-call-spacing": "error",
             "@stylistic/function-paren-newline": ["error", "multiline"],
