@@ -7,11 +7,11 @@ const typescriptRules = [
     ...tsEslint.configs.stylisticTypeChecked,
 ].reduce((acc, config) => ({ ...acc, ...config.rules }), {});
 
-/** @type {import('eslint').Linter.FlatConfig[]} */
+/** @type {import('eslint').Linter.Config[]} */
 module.exports = [
     ...common,
     {
-        files: ["src/**/*.ts"],
+        files: ["**/*.ts"],
         languageOptions: {
             parser: tsEslint.parser,
             parserOptions: { projectService: true },
