@@ -29,6 +29,14 @@ jobs:
           node-version: 'lts/*'
           registry-url: 'https://registry.npmjs.org'
       - run: npm ci
-      - run: npm publish --provenance --access public
+      - run: |
+          VERSION=$(node -p "require('./package.json').version")
+          echo "VERSION=$VERSION" >> $GITHUB_ENV
+      - run: |
+          if [[ "$VERSION" == *"-beta"* ]]; then
+            npm publish --tag beta --provenance --access public
+          else
+            npm publish --provenance --access public
+          fi
         env:
           NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
