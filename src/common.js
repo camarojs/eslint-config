@@ -10,17 +10,11 @@ const customized = stylistic.configs.customize({
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
-    eslint.configs.all,
+    eslint.configs.recommended,
     stylistic.configs["all-flat"],
     customized,
     {
         rules: {
-            // #region eslint rules
-            "no-await-in-loop": "off",
-            "one-var": ["error", "never"],
-            "sort-keys": ["error", "asc", { allowLineSeparatedGroups: true }],
-            // #endregion
-
             // #region stylistic rules
             "@stylistic/array-bracket-newline": ["error", { multiline: true }],
             "@stylistic/array-element-newline": ["error", { consistent: true }],
