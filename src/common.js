@@ -11,7 +11,6 @@ const customized = stylistic.configs.customize({
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
     eslint.configs.recommended,
-    stylistic.configs["all-flat"],
     customized,
     {
         rules: {
