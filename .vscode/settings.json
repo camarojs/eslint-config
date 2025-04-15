@@ -7,5 +7,6 @@
   },
   "eslint.workingDirectories": [
     "."
-  ]
+  ],
+  "eslint.runtime": "node"
 }
