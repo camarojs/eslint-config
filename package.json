@@ -13,7 +13,8 @@
     }
   },
   "scripts": {
-    "prepare": "husky",
+    "build": "",
+    "prepare": "husky || true",
     "cspell": "cspell --config ./eng/cspell.config.json --quiet .",
     "commitlint": "commitlint --config ./eng/.commitlintrc.json --edit",
     "eslint": "eslint --config ./eng/eslint.config.js .",
