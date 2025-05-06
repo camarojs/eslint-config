@@ -6,6 +6,9 @@ on:
     tags:
       - "*"
 
+permissions:
+  contents: read
+
 jobs:
   build:
     uses: postboys/workflows/.github/workflows/build-nodejs.yml@main
