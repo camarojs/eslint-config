@@ -13,7 +13,9 @@ jobs:
   build:
     uses: postboys/workflows/.github/workflows/build-nodejs.yml@main
     with:
-      path-to-artifact: src/**/*.js
+      path-to-artifact: |
+        src/**/*.js
+        type.d.ts
 
   publish:
     needs: build
