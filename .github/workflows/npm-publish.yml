@@ -14,8 +14,8 @@ jobs:
     uses: camarojs/workflows/.github/workflows/build-nodejs.yml@main
     with:
       path-to-artifact: |
-        src/**/*.js
-        type.d.ts
+        lib/**/*
+        .npmignore
 
   publish:
     needs: build
