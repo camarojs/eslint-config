@@ -1,17 +1,19 @@
-const { ts } = require("..");
+const ts = require("@camaro/eslint-config/ts");
 const globals = require("globals");
 
 /** @type {import('eslint').Linter.Config[]} */
 module.exports = [
     ...ts,
-    {
-        ignores: ["lib/**/*"],
-    },
+    { ignores: ["lib/**/*"] },
     {
         files: ["eng/**/*.js"],
         languageOptions: { globals: { ...globals.node } },
     },
     {
-        files: ["src/**/*.ts"],
+        files: ["test/**/*.test.ts"],
+        rules: {
+            "@typescript-eslint/no-floating-promises": "off",
+            "@typescript-eslint/no-unused-vars": "off",
+        },
     },
 ];
