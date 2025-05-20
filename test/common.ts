@@ -1,8 +1,7 @@
 import { ESLint, Linter } from "eslint";
 import { ts } from "../src/index";
 import assert from "node:assert";
-import { describe, test } from "node:test";
-import { TestConfig } from "./config";
+import { describe, it } from "node:test";
 
 const eslint = new ESLint({
     overrideConfigFile: true,
@@ -11,9 +10,15 @@ const eslint = new ESLint({
     allowInlineConfig: false,
 });
 
-TestConfig.forEach(({ ruleId, invalidCount, errorMessages }) => {
+export interface TestConfig {
+    ruleId: string;
+    invalidCount: number;
+    errorMessages: string[];
+}
+
+export const runTests = ({ ruleId, invalidCount, errorMessages }: TestConfig) => {
     describe(ruleId, () => {
-        test("invalid cases", async () => {
+        it("should be invalid cases", async () => {
             const results = await eslint.lintFiles(`test/${ruleId}/invalid.test.ts`);
             assert.strictEqual(results.length, 1);
 
@@ -28,7 +33,7 @@ TestConfig.forEach(({ ruleId, invalidCount, errorMessages }) => {
             });
         });
 
-        test("valid cases", async () => {
+        it("should be valid cases", async () => {
             const results = await eslint.lintFiles(`test/${ruleId}/valid.test.ts`);
             assert.strictEqual(results.length, 1);
 
@@ -36,4 +41,4 @@ TestConfig.forEach(({ ruleId, invalidCount, errorMessages }) => {
             assert.strictEqual(result?.errorCount, 0);
         });
     });
-});
+};

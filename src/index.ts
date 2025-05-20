@@ -14,7 +14,12 @@ const styleLint = stylistic.configs.customize({
 export const common: Linter.Config[] = [
     eslintJS.configs.recommended,
     styleLint,
-    { rules: { "@stylistic/max-len": ["error", { code: 120 }] } },
+    {
+        rules: {
+            "@stylistic/max-len": ["error", { code: 120 }],
+            "@stylistic/array-bracket-newline": ["error", "consistent"],
+        },
+    },
 ];
 
 const eslintTsRules = [

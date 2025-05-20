@@ -10,7 +10,7 @@ module.exports = [
         languageOptions: { globals: { ...globals.node } },
     },
     {
-        files: ["test/**/*.test.ts"],
+        files: ["test/**/*.ts"],
         rules: {
             "@typescript-eslint/no-floating-promises": "off",
             "@typescript-eslint/no-unused-vars": "off",
