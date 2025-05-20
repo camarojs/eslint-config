@@ -8,9 +8,10 @@ const eslint = new ESLint({
     overrideConfigFile: true,
     baseConfig: ts as unknown as Linter.Config,
     overrideConfig: { rules: { "@typescript-eslint/no-unused-vars": "off" } },
+    allowInlineConfig: false,
 });
 
-TestConfig.forEach(({ ruleId, invalidCount, validCount, messages }) => {
+TestConfig.forEach(({ ruleId, invalidCount, errorMessages }) => {
     describe(ruleId, () => {
         test("invalid cases", async () => {
             const results = await eslint.lintFiles(`test/${ruleId}/invalid.test.ts`);
@@ -18,12 +19,12 @@ TestConfig.forEach(({ ruleId, invalidCount, validCount, messages }) => {
 
             const result = results[0];
             assert.strictEqual(result?.errorCount, invalidCount);
-            assert.strictEqual(result.messages.length, messages.length);
+            assert.strictEqual(result.messages.length, errorMessages.length);
 
             result.messages.forEach((message, index) => {
                 assert.strictEqual(message.severity, 2);
                 assert.strictEqual(message.ruleId, ruleId);
-                assert.strictEqual(message.message, messages[index]);
+                assert.strictEqual(message.message, errorMessages[index]);
             });
         });
 
