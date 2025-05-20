@@ -17,7 +17,7 @@ export const common: Linter.Config[] = [
     {
         rules: {
             "@stylistic/max-len": ["error", { code: 120 }],
-            "@stylistic/array-bracket-newline": ["error", "consistent"],
+            "@stylistic/array-bracket-newline": ["error"],
         },
     },
 ];

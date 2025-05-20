@@ -1,14 +1,11 @@
 const a = [];
-const b = [
-];
-const c = [1];
+const b = [1];
+const c = [1, 2];
 const d = [
     1,
+    2,
 ];
-const e = [function foo() {
-    console.log();
-}];
-const f = [
+const e = [
     function foo() {
         console.log();
     },

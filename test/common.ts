@@ -13,10 +13,10 @@ const eslint = new ESLint({
 export interface TestConfig {
     ruleId: string;
     invalidCount: number;
-    errorMessages: string[];
+    errorMessageIds: string[];
 }
 
-export const runTests = ({ ruleId, invalidCount, errorMessages }: TestConfig) => {
+export const runTests = ({ ruleId, invalidCount, errorMessageIds }: TestConfig) => {
     describe(ruleId, () => {
         it("should be invalid cases", async () => {
             const results = await eslint.lintFiles(`test/${ruleId}/invalid.test.ts`);
@@ -24,12 +24,12 @@ export const runTests = ({ ruleId, invalidCount, errorMessages }: TestConfig) =>
 
             const result = results[0];
             assert.strictEqual(result?.errorCount, invalidCount);
-            assert.strictEqual(result.messages.length, errorMessages.length);
+            assert.strictEqual(result.messages.length, errorMessageIds.length);
 
             result.messages.forEach((message, index) => {
                 assert.strictEqual(message.severity, 2);
                 assert.strictEqual(message.ruleId, ruleId);
-                assert.strictEqual(message.message, errorMessages[index]);
+                assert.strictEqual(message.messageId, errorMessageIds[index]);
             });
         });
 
