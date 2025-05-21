@@ -4,7 +4,7 @@ import { spec } from "node:test/reporters";
 const stream = run({
     concurrency: true,
     execArgv: ["--enable-source-maps"],
-    globPatterns: ["test/**/index.test.ts"],
+    globPatterns: ["test/**/max-len.test.ts"],
 
     setup(reporter) {
         reporter.on("test:fail", () => {
