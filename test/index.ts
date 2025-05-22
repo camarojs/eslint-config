@@ -5,6 +5,7 @@ const stream = run({
     concurrency: true,
     execArgv: ["--enable-source-maps"],
     globPatterns: ["test/**/*.test.ts"],
+    isolation: "none",
 
     setup(reporter) {
         reporter.on("test:fail", () => {
