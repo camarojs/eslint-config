@@ -14,7 +14,8 @@ void describe(ruleId, () => {
     });
 
     void it("reports error if multiple params are on new lines but closing paren isn't", async () => {
-        await lintText("function foo(\n    bar, baz) { }",
+        await lintText(
+            "function foo(\n    bar, baz) { }",
             { errorCount: 1, ruleId, messageIds: ["unexpectedAfter"], disableRules },
         );
     });
