@@ -24,7 +24,8 @@ interface LintTextOptions {
 }
 
 export const lintText = async (code: string, options: LintTextOptions = {}) => {
-    const disableRules = options.disableRules ?? [];
+    const disableRules = [...(options.disableRules ?? [])];
+
     if (!options.noUnusedVars) {
         disableRules.push("@typescript-eslint/no-unused-vars");
     }
