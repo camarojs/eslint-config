@@ -40,6 +40,9 @@ export const ts: TSESLint.FlatConfig.ConfigArray = [
             parserOptions: { projectService: true },
         },
         plugins: { "@typescript-eslint": eslintTS.plugin },
-        rules: { ...eslintTsRules },
+        rules: {
+            ...eslintTsRules,
+            "@typescript-eslint/restrict-template-expressions": "error", // override strict rule options
+        },
     },
 ];

@@ -19,12 +19,17 @@ interface LintTextOptions {
     messageIds?: string[];
     /** The ruleId to check against */
     ruleId?: string;
+    /** The ruleId to disable */
+    disableRules?: string[];
 }
 
 export const lintText = async (code: string, options: LintTextOptions = {}) => {
+    const disableRules = options.disableRules ?? [];
     if (!options.noUnusedVars) {
-        code = `/* eslint-disable @typescript-eslint/no-unused-vars */\n${code.trimEnd()}\n`;
+        disableRules.push("@typescript-eslint/no-unused-vars");
     }
+
+    code = `/* eslint-disable ${disableRules.join(", ")} */\n${code.trim()}\n`;
 
     const results = await eslint.lintText(code, { filePath: dummyFilePath });
     const result = (results as [ESLint.LintResult])[0];
