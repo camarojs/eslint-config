@@ -4,7 +4,7 @@ import { lintText } from "../util";
 const ruleId = "@stylistic/array-bracket-newline";
 
 void describe(ruleId, () => {
-    void it("should report error for array with incorrect line breaks", async () => {
+    void it("should report errors for array with incorrect line breaks", async () => {
         await lintText(
             "const a = [1,\n" + "    2,\n" + "];",
             { errorCount: 1, ruleId, messageIds: ["missingOpeningLinebreak"] },
@@ -16,7 +16,7 @@ void describe(ruleId, () => {
         );
     });
 
-    void it("should not report error for array with correct line breaks", async () => {
+    void it("should not report errors for correctly formatted arrays", async () => {
         await lintText("const a = [1, 2];", { errorCount: 0 });
         await lintText("const d = [\n    1,\n    2,\n];", { errorCount: 0 });
     });
