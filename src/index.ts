@@ -20,6 +20,7 @@ export const common: Linter.Config[] = [
 
             "@stylistic/array-bracket-newline": "error",
             "@stylistic/array-element-newline": ["error", "consistent"],
+            "@stylistic/function-call-spacing": ["error", "never"],
             "@stylistic/function-paren-newline": ["error", "multiline-arguments"],
             "@stylistic/max-len": ["error", { code: 120 }],
         },
