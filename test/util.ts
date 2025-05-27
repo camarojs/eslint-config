@@ -11,39 +11,26 @@ const eslint = new ESLint({
 const dummyFilePath = path.resolve(__dirname, "dummy.ts");
 
 interface LintTextOptions {
-    /** Whether to enable the no-unused-vars rule, default false */
-    noUnusedVars?: boolean;
     /** The expected error count */
-    errorCount?: number;
+    errorCount: number;
+    /** The rule ID to check for */
+    ruleId: string;
     /** The expected warning count */
     messageIds?: string[];
-    /** The ruleId to check against */
-    ruleId?: string;
-    /** The ruleId to disable */
-    disableRules?: string[];
 }
 
-export const lintText = async (code: string, options: LintTextOptions = {}) => {
-    const disableRules = [...(options.disableRules ?? [])];
-
-    if (!options.noUnusedVars) {
-        disableRules.push("@typescript-eslint/no-unused-vars");
-    }
-
-    code = `/* eslint-disable ${disableRules.join(", ")} */\n${code.trim()}\n`;
-
+export const lintText = async (code: string, options: LintTextOptions) => {
     const results = await eslint.lintText(code, { filePath: dummyFilePath });
     const result = (results as [ESLint.LintResult])[0];
 
     assert.strictEqual(results.length, 1, "Expected exactly one result");
-    assert.strictEqual(result.errorCount, options.errorCount);
 
-    result.messages.forEach((message, index) => {
+    const messages = result.messages.filter(message => message.ruleId === options.ruleId);
+
+    assert.strictEqual(messages.length, options.errorCount);
+
+    messages.forEach((message, index) => {
         assert.strictEqual(message.severity, 2);
-
-        if (options.ruleId) {
-            assert.strictEqual(message.ruleId, options.ruleId);
-        }
 
         if (options.messageIds?.length) {
             assert.strictEqual(message.messageId, options.messageIds[index]);

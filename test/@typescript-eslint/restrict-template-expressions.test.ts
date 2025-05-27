@@ -15,20 +15,19 @@ void describe(ruleId, () => {
                 errorCount: 1,
                 ruleId,
                 messageIds: ["invalidType"],
-                disableRules: ["@typescript-eslint/no-base-to-string"],
             },
         );
     });
 
     void it("should allow numbers in template expressions", async () => {
-        await lintText("const a = 1;\nconst b = `${a}`;", { errorCount: 0 });
+        await lintText("const a = 1;\nconst b = `${a}`;", { errorCount: 0, ruleId });
     });
 
     void it("should allow booleans in template expressions", async () => {
-        await lintText("const a = true;\nconst b = `${a}`;", { errorCount: 0 });
+        await lintText("const a = true;\nconst b = `${a}`;", { errorCount: 0, ruleId });
     });
 
     void it("should allow nullish values in template expressions", async () => {
-        await lintText("const a = null;\nconst b = `${a}`;", { errorCount: 0 });
+        await lintText("const a = null;\nconst b = `${a}`;", { errorCount: 0, ruleId });
     });
 });

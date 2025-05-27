@@ -16,6 +16,7 @@ export const common: Linter.Config[] = [
     styleLint,
     {
         rules: {
+            "eqeqeq": "error",
             "prefer-const": ["error", { destructuring: "all" }],
 
             "@stylistic/array-bracket-newline": "error",

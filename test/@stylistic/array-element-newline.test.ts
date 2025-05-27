@@ -12,6 +12,6 @@ void describe(ruleId, () => {
     });
 
     void it("should not report line break error", async () => {
-        await lintText("const a = [1, 2, 3];", { errorCount: 0 });
+        await lintText("const a = [1, 2, 3];", { errorCount: 0, ruleId });
     });
 });

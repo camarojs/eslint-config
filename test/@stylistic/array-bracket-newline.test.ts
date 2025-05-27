@@ -17,7 +17,7 @@ void describe(ruleId, () => {
     });
 
     void it("should not report errors for correctly formatted arrays", async () => {
-        await lintText("const a = [1, 2];", { errorCount: 0 });
-        await lintText("const d = [\n    1,\n    2,\n];", { errorCount: 0 });
+        await lintText("const a = [1, 2];", { errorCount: 0, ruleId });
+        await lintText("const d = [\n    1,\n    2,\n];", { errorCount: 0, ruleId });
     });
 });

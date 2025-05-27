@@ -8,7 +8,7 @@ void describe(ruleId, () => {
         await lintText(
             "const str = \"this is a very long string that exceeds the maximum length, "
             + "this is a very long string that exceeds the maximum length, \";",
-            { ruleId, errorCount: 1, messageIds: ["max"] },
+            { errorCount: 1, ruleId, messageIds: ["max"] },
         );
     });
 });

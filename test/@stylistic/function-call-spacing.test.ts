@@ -9,6 +9,6 @@ void describe(ruleId, () => {
     });
 
     void it("", async () => {
-        await lintText("const a = new Date();", { errorCount: 0 });
+        await lintText("const a = new Date();", { errorCount: 0, ruleId });
     });
 });

@@ -9,6 +9,6 @@ void describe(ruleId, () => {
     });
 
     void it("should not report errors when a variable is reassigned", async () => {
-        await lintText("let { a, b } = { a: 1, b: 2 };\na = 2;", { errorCount: 0 });
+        await lintText("let { a, b } = { a: 1, b: 2 };\na = 2;", { errorCount: 0, ruleId });
     });
 });
