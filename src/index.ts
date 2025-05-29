@@ -24,6 +24,7 @@ export const common: Linter.Config[] = [
             "@stylistic/function-call-spacing": ["error", "never"],
             "@stylistic/function-paren-newline": ["error", "multiline-arguments"],
             "@stylistic/max-len": ["error", { code: 120 }],
+            "@stylistic/object-curly-newline": "error",
         },
     },
 ];
