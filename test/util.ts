@@ -1,7 +1,7 @@
 import { ESLint, Linter } from "eslint";
-import { ts } from "../src/index.js";
 import assert from "node:assert";
 import path from "node:path";
+import { ts } from "../src/index.js";
 
 const eslint = new ESLint({
     overrideConfigFile: true,
