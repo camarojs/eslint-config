@@ -1,5 +1,5 @@
 import { ESLint, Linter } from "eslint";
-import { ts } from "../src/index";
+import { ts } from "../src/index.js";
 import assert from "node:assert";
 import path from "node:path";
 
@@ -8,7 +8,7 @@ const eslint = new ESLint({
     baseConfig: ts as unknown as Linter.Config,
 });
 
-const dummyFilePath = path.resolve(__dirname, "dummy.ts");
+const dummyFilePath = path.resolve(import.meta.dirname, "dummy.ts");
 
 interface LintTextOptions {
     /** The expected error count */

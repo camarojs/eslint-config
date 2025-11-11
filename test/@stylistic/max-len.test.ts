@@ -1,4 +1,4 @@
-import { lintText } from "../util";
+import { lintText } from "../util.js";
 import { describe, it } from "node:test";
 
 const ruleId = "@stylistic/max-len";

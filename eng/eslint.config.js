@@ -1,8 +1,8 @@
-const { ts } = require("@camaro/eslint-config");
-const globals = require("globals");
+import { ts } from "@camaro/eslint-config";
+import globals from "globals";
 
 /** @type {import('eslint').Linter.Config[]} */
-module.exports = [
+export default [
     ...ts,
     { ignores: ["lib/**/*"] },
     {
