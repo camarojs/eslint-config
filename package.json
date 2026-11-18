@@ -1,0 +1,60 @@
+{
+  "name": "@camaro/eslint-config",
+  "version": "0.3.0",
+  "description": "A shareable eslint config.",
+  "type": "module",
+  "exports": {
+    ".": "./lib/common.js",
+    "./typescript": "./lib/typescript.js"
+  },
+  "scripts": {
+    "build": "tsc -p ./tsconfig.build.json",
+    "lint": "npm run type-check && eslint --config ./eng/eslint.config.ts .",
+    "test": "node ./test/index.ts",
+    "type-check": "tsc --noEmit && tsc -p test/tsconfig.json --noEmit"
+  },
+  "keywords": [
+    "eslint",
+    "eslint-config",
+    "eslint-config-airbnb",
+    "shared-config",
+    "typescript",
+    "stylistic",
+    "code-style",
+    "linting"
+  ],
+  "dependencies": {
+    "@eslint/config-helpers": "^0.6.0",
+    "@eslint/js": "^10.0.1",
+    "@stylistic/eslint-plugin": "^5.10.0",
+    "eslint-plugin-simple-import-sort": "^13.0.0"
+  },
+  "devDependencies": {
+    "@camaro/tsconfig": "^1.4.0",
+    "@types/node": "^25.9.4",
+    "eslint": "^10.5.0",
+    "globals": "^17.7.0",
+    "jiti": "^2.6.1",
+    "typescript": "~6.0.3",
+    "typescript-eslint": "^8.62.0"
+  },
+  "peerDependencies": {
+    "eslint": "^10.0.3",
+    "typescript-eslint": "^8.57.0"
+  },
+  "peerDependenciesMeta": {
+    "typescript-eslint": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/camarojs/eslint-config.git"
+  },
+  "author": "Dunn <wg0121@outlook.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/camarojs/eslint-config/issues"
+  },
+  "homepage": "https://github.com/camarojs/eslint-config#readme"
+}

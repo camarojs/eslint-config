@@ -1,0 +1,9 @@
+{
+  "extends": "@camaro/tsconfig/base.json",
+  "compilerOptions": {
+    "module": "esnext",
+    "types": [
+      "node"
+    ]
+  }
+}

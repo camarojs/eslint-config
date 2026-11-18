@@ -1,0 +1,29 @@
+name: Release CI
+
+on:
+  push:
+    tags:
+      - "v*.*.*"
+
+permissions:
+  contents: read
+
+jobs:
+  build:
+    uses: camarojs/workflows/.github/workflows/build-nodejs.yml@v1
+    with:
+      upload-artifact: true
+      path-to-artifact: |
+        lib/
+        package.json
+        package-lock.json
+        README.md
+        CHANGELOG.md
+        .npmignore
+  publish-to-npm:
+    needs: build
+    uses: camarojs/workflows/.github/workflows/npm-publish.yml@v1
+    permissions:
+      id-token: write
+    with:
+      package-path: "."
