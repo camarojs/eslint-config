@@ -1,0 +1,44 @@
+version: 2
+updates:
+  - package-ecosystem: "npm"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "Asia/Shanghai"
+    versioning-strategy: "increase"
+    groups:
+      non-breaking:
+        update-types:
+          - "minor"
+          - "patch"
+      typescript:
+        patterns:
+          - "typescript"
+      npm-major:
+        update-types:
+          - "major"
+        exclude-patterns:
+          - "typescript"
+    ignore:
+      - dependency-name: "@types/node"
+        versions:
+          - ">=26"
+    open-pull-requests-limit: 5
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(deps): "
+
+  - package-ecosystem: "github-actions"
+    directory: "/"
+    schedule:
+      interval: "weekly"
+      day: "monday"
+      time: "03:00"
+      timezone: "Asia/Shanghai"
+    labels:
+      - "dependencies"
+    commit-message:
+      prefix: "chore(ci): "
