@@ -9,7 +9,12 @@
   },
   "scripts": {
     "build": "tsc -p ./tsconfig.build.json",
-    "lint": "npm run type-check && eslint --config ./eng/eslint.config.ts .",
+    "commitlint": "commitlint --config ./eng/.commitlintrc.json --edit",
+    "cspell": "cspell --config ./eng/cspell.config.json --quiet .",
+    "eslint": "eslint --config ./eng/eslint.config.ts .",
+    "lint": "npm run cspell && npm run type-check && npm run eslint",
+    "lint:staged": "lint-staged --config ./eng/.lintstagedrc.json",
+    "prepare": "node .husky/install.mjs",
     "test": "node ./test/index.ts",
     "type-check": "tsc --noEmit && tsc -p test/tsconfig.json --noEmit"
   },
@@ -31,10 +36,15 @@
   },
   "devDependencies": {
     "@camaro/tsconfig": "^1.4.0",
+    "@commitlint/cli": "^21.1.0",
+    "@commitlint/config-conventional": "^21.1.0",
     "@types/node": "^25.9.4",
+    "cspell": "^10.0.1",
     "eslint": "^10.5.0",
     "globals": "^17.7.0",
+    "husky": "^9.1.7",
     "jiti": "^2.6.1",
+    "lint-staged": "^17.0.8",
     "typescript": "~6.0.3",
     "typescript-eslint": "^8.62.0"
   },

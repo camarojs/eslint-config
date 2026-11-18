@@ -20,6 +20,7 @@ jobs:
         README.md
         CHANGELOG.md
         .npmignore
+        .husky/install.mjs
   publish-to-npm:
     needs: build
     uses: camarojs/workflows/.github/workflows/npm-publish.yml@v1

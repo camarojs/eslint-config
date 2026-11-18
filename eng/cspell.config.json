@@ -1,0 +1,15 @@
+{
+  "cache": {
+    "cacheLocation": "../node_modules/.cache/cspell",
+    "useCache": true
+  },
+  "useGitignore": true,
+  "words": [
+    "camaro",
+    "camarojs",
+    "commitlint",
+    "commitlintrc",
+    "lintstagedrc",
+    "npmignore"
+  ]
+}

@@ -2,6 +2,7 @@ src/
 test/
 eng/
 .github/
+.husky/
 .gitignore
 
 tsconfig*.json

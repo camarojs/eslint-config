@@ -132,8 +132,16 @@ npm run build
 npm pack --dry-run
 ```
 
-The lint command checks both source and test types before running ESLint.
+The lint command checks spelling and both source and test types before running ESLint.
 The build produces the JavaScript and declaration files in `lib/`.
+
+`npm ci` also installs Husky hooks for local development:
+
+- Before a commit, lint-staged checks spelling in staged files.
+- Commit messages must follow Conventional Commits.
+- Before a push, the full lint command runs.
+
+CI, production-only installs, and `HUSKY=0` skip hook installation.
 
 ## Releases
 

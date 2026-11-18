@@ -1,0 +1,3 @@
+{
+  "*": "cspell --config ./eng/cspell.config.json"
+}
